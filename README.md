@@ -1,6 +1,9 @@
 # AirBnB clone
 
-The AirBnB clone project starts now until… the end of the first year. The goal of the project is to deploy on your server a simple copy of the AirBnB website.
+
+![hbnb image](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20221025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221025T075604Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=fed2cd1ee5aaa0006b4d326454bb05b452ea40c162b37f1a93afac2f1ddd2572)
+
+The AirBnB clone project starts now until… the end of the first year. The goal of the project is to deploy on your server a simple copy of the [AirBnB website](https://www.airbnb.com).
 
 You won’t implement all the features, only some of them to cover all fundamental concepts of the higher level programming track.
 
