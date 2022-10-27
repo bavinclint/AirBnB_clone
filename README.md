@@ -1,8 +1,5 @@
 # AirBnB clone
 
-
-I know you were waiting for it: it’s here!
-
 The AirBnB clone project starts now until… the end of the first year. The goal of the project is to deploy on your server a simple copy of the AirBnB website.
 
 You won’t implement all the features, only some of them to cover all fundamental concepts of the higher level programming track.
@@ -77,6 +74,8 @@ You will always use class attributes for any object. Why not instance attributes
 How can I store my instances?
 That’s a good question. So let’s take a look at this code:
 
+```
+
 class Student():
     def __init__(self, name):
         self.name = name
@@ -84,8 +83,10 @@ class Student():
 students = []
 s = Student("John")
 students.append(s)
+```
+Here, I’m creating a student and storing it in a list. But after this program execution, my Student instance doesn’t exist anymore.
 
-Here, I’m creating a student and store it in a list. But after this program execution, my Student instance doesn’t exist anymore.
+```
 
 class Student():
     def __init__(self, name):
@@ -95,64 +96,73 @@ students = reload() # recreate the list of Student objects from a file
 s = Student("John")
 students.append(s)
 save(students) # save all Student objects to a file
-
-But how it works?
+```
+But how does it work?
 
 First, let’s look at save(students):
 
-Can I write each Student object to a file => NO, it will be the memory representation of the object. For another program execution, this memory representation can’t be reloaded.
-Can I write each Student.name to a file => YES, but imagine you have other attributes to describe Student? It would start to be become too complex.
+_Can I write each Student object to a file => NO, it will be the memory representation of the object. For another program execution, this memory representation can’t be reloaded._
+
+_Can I write each Student.name to a file => YES, but imagine you have other attributes to describe Student? It would start to be become too complex._
+
 The best solution is to convert this list of Student objects to a JSON representation.
 
 Why JSON? Because it’s a standard representation of object. It allows us to share this data with other developers, be human readable, but mainly to be understood by another language/program.
 
-Example:
+**Example:**
 
 My Python program creates Student objects and saves them to a JSON file
+
 Another Javascript program can read this JSON file and manipulate its own Student class/representation
+
 And the reload()? now you know the file is a JSON file representing all Student objects. So reload() has to read the file, parse the JSON string, and re-create Student objects based on this data-structure.
 
-File storage == JSON serialization
+### File storage == JSON serialization
+
 For this first step, you have to write in a file all your objects/instances created/updated in your command interpreter and restore them when you start it. You can’t store and restore a Python instance of a class as “Bytes”, the only way is to convert it to a serializable data structure:
 
-convert an instance to Python built in serializable data structure (list, dict, number and string) - for us it will be the method my_instance.to_json() to retrieve a dictionary
-convert this data structure to a string (JSON format, but it can be YAML, XML, CSV…) - for us it will be a my_string = JSON.dumps(my_dict)
-write this string to a file on disk
-And the process of deserialization?
+* convert an instance to Python built in serializable data structure (list, dict, number and string) - for us it will be the method my_instance.to_json() to retrieve a dictionary
+* convert this data structure to a string (JSON format, but it can be YAML, XML, CSV…) - for us it will be a my_string = JSON.dumps(my_dict)
+* write this string to a file on disk
 
-The same but in the other way:
+And the process of deserialization? The same but in the other way:
 
-read a string from a file on disk
-convert this string to a data structure. This string is a JSON representation, so it’s easy to convert - for us it will be a my_dict = JSON.loads(my_string)
-convert this data structure to instance - for us it will be a my_instance = MyObject(my_dict)
+* read a string from a file on disk
+* convert this string to a data structure. This string is a JSON representation, so it’s easy to convert - for us it will be a my_dict = JSON.loads(my_string)
+* convert this data structure to instance - for us it will be a my_instance = MyObject(my_dict)
 
 ## *args, **kwargs
 
 How do you pass arguments to a function?
 
+```
+
 def my_fct(param_1, param_2):
     ...
 
 my_fct("Best", "School")
-
+```
 But with this function definition, you must call my_fct with 2 parameters, no more, no less.
 
 Can it be dynamic? Yes you can:
 
+```
 def my_fct(*args, **kwargs):
     ...
 
 my_fct("Best", "School")
-
+```
 **What’s *args and **kwargs?**
 
 _*args is a Tuple that contains all arguments_
 _*kwargs is a dictionary that contains all arguments by key/value_
 
 A dictionary? But why?
-**So, to make it clear, *args is the list of anonymous arguments, no name, just an order. **kwargs is the dictionary with all named arguments.**
+So, to make it clear, *args is the list of anonymous arguments, no name, just an order. **kwargs is the dictionary with all named arguments.
 
-Examples:
+**Examples:**
+
+```
 
 def my_fct(*args, **kwargs):
     print("{} - {}".format(args, kwargs))
@@ -163,11 +173,12 @@ my_fct("Best", 89) # ('Best', 89) - {}
 my_fct(name="Best") # () - {'name': 'Best'}
 my_fct(name="Best", number=89) # () - {'name': 'Best', 'number': 89}
 my_fct("School", 12, name="Best", number=89) # ('School', 12) - {'name': 'Best', 'number': 89}
-
+```
 Perfect? Of course you can mix both, but the order should be first all anonymous arguments, and after named arguments.
 
 **Last example:**
 
+```
 def my_fct(*args, **kwargs):
     print("{} - {}".format(args, kwargs))
 
@@ -176,6 +187,7 @@ a_dict = { 'name': "Best", 'age': 89 }
 my_fct(a_dict) # ({'age': 89, 'name': 'Best'},) - {}
 my_fct(*a_dict) # ('age', 'name') - {}
 my_fct(**a_dict) # () - {'age': 89, 'name': 'Best'}
+```
 You can play with these 2 arguments to clearly understand where and how your variables are stored.
 
 ## datetime
@@ -201,12 +213,16 @@ print(date_tomorrow) # 2017-06-09 20:42:42.170922
 ```
 … you can also store it:
 
+```
 a_dict = { 'my_date': date_now }
 print(type(a_dict['my_date'])) # <class 'datetime.datetime'>
 print(a_dict) # {'my_date': datetime.datetime(2017, 6, 8, 20, 42, 42, 170922)}
+```
 What? What’s this format when a datetime instance is in a datastructure??? It’s unreadable.
 
 How to make it readable: strftime
 
+```
 print(date_now.strftime("%A")) # Thursday
 print(date_now.strftime("%A %d %B %Y at %H:%M:%S")) # Thursday 08 June 2017 at 20:42:42
+```
