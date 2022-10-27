@@ -75,7 +75,6 @@ How can I store my instances?
 That’s a good question. So let’s take a look at this code:
 
 ```
-
 class Student():
     def __init__(self, name):
         self.name = name
@@ -87,7 +86,6 @@ students.append(s)
 Here, I’m creating a student and storing it in a list. But after this program execution, my Student instance doesn’t exist anymore.
 
 ```
-
 class Student():
     def __init__(self, name):
         self.name = name
@@ -136,7 +134,6 @@ And the process of deserialization? The same but in the other way:
 How do you pass arguments to a function?
 
 ```
-
 def my_fct(param_1, param_2):
     ...
 
@@ -152,7 +149,7 @@ def my_fct(*args, **kwargs):
 
 my_fct("Best", "School")
 ```
-**What’s *args and **kwargs?**
+What’s *args and **kwargs?
 
 _*args is a Tuple that contains all arguments_
 _*kwargs is a dictionary that contains all arguments by key/value_
@@ -163,7 +160,6 @@ So, to make it clear, *args is the list of anonymous arguments, no name, just an
 **Examples:**
 
 ```
-
 def my_fct(*args, **kwargs):
     print("{} - {}".format(args, kwargs))
 
@@ -196,7 +192,6 @@ datetime is a Python module to manipulate date, time etc…
 In this example, you create an instance of datetime with the current date and time:
 
 ```
-
 from datetime import datetime
 
 date_now = datetime.now()
@@ -205,7 +200,6 @@ print(date_now) # 2017-06-08 20:42:42.170922
 ```
 date_now is an object, so you can manipulate it:
 ```
-
 from datetime import timedelta
 
 date_tomorrow = date_now + timedelta(days=1)
