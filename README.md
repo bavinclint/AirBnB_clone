@@ -1,8 +1,5 @@
 # AirBnB clone
 
-
-![hbnb image](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20221025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221025T075604Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=fed2cd1ee5aaa0006b4d326454bb05b452ea40c162b37f1a93afac2f1ddd2572)
-
 The AirBnB clone project starts now until… the end of the first year. The goal of the project is to deploy on your server a simple copy of the [AirBnB website](https://www.airbnb.com).
 
 You won’t implement all the features, only some of them to cover all fundamental concepts of the higher level programming track.
@@ -13,6 +10,23 @@ After 4 months, you will have a complete web application composed by:
 * A website (the front-end) that shows the final product to everybody: static and dynamic
 * A database or files that store data (data = objects)
 * An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them)
+
+## Videos
+Some students from Cohort #2 created videos for helping you to understand the entire project but also some tricky parts, please find [here the playlist](https://www.youtube.com/playlist?list=PLlLHfkTcnvmPOp6jv_89tRpJUMFrP-Wbi)
+
+Videos showing examples of how various parts of the project work, listed below:
+* [Overview](https://www.youtube.com/watch?v=QTwmCB_AWqI)
+* [The Console](https://www.youtube.com/watch?v=jeJwRB33YNg)
+* [ORM](https://www.youtube.com/watch?v=ZwCD8cNZk9U)
+* [RESTful API](https://www.youtube.com/watch?v=LrQhULlFJdU)
+
+## Concepts to learn
+* [Unittest](https://docs.python.org/3.4/library/unittest.html#module-unittest)
+* __Python packages__ concept page
+* Serialization/Deserialization
+* *args, **kwargs
+* datetime
+* More coming soon
  
 ## Steps
 You won’t build this application all at once, but step by step.
@@ -133,6 +147,7 @@ And the process of deserialization? The same but in the other way:
 * convert this data structure to instance - for us it will be a my_instance = MyObject(my_dict)
 
 ## *args, **kwargs
+[How To Use Them](https://www.digitalocean.com/community/tutorials/how-to-use-args-and-kwargs-in-python-3)
 
 How do you pass arguments to a function?
 
@@ -217,7 +232,7 @@ print(a_dict) # {'my_date': datetime.datetime(2017, 6, 8, 20, 42, 42, 170922)}
 ```
 What? What’s this format when a datetime instance is in a datastructure??? It’s unreadable.
 
-How to make it readable: strftime
+How to make it readable: [strftime](https://strftime.org/)
 
 ```
 print(date_now.strftime("%A")) # Thursday
