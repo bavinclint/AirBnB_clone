@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "run test"
+git commit -m "test executable"
 git push
