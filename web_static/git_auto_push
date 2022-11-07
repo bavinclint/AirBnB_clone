@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "Search!"
+git commit -m "More filters"
 git push
